@@ -37,7 +37,8 @@ Note that the source code is provided as-is without warranties of any kind. It i
 demonstration purposes, not for efficiency.
 All source code is located in the src folder:
 LDMRS_Examples
- - build-release
+
+- build-release
  - src
    - application (the application(s) working with the data)
    - datatypes (all kind of datatypes used in the software)
@@ -89,3 +90,19 @@ The ScanpointCoordinateApp demonstrates the use of scanpoint coordinates and all
 It also demonstrates how to distinguish between 4- and 8-layer-scanners and their mirror sides.
 
 <End of file>
+http://file.allitebooks.com/20151124/Programming%20Robots%20with%20ROS.pdf
+
+import	rospy from	sensor_msgs.msg	
+import	LaserScan
+def	scan_callback(msg):		
+    range_ahead	=	msg.ranges[len(msg.ranges)/2]		
+    print	"range	ahead:	%0.1f"	%	range_ahead
+
+rospy.init_node('range_ahead') 
+scan_sub	=	rospy.Subscriber('scan',	LaserScan,	scan_callback) 
+rospy.spin() 
+
+def	scan_callback(msg):		
+    range_ahead	=	msg.ranges[len(msg.ranges)/2]		
+    print	"range	ahead:	%0.1f"	%	range_ahead
+
